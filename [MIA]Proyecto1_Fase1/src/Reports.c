@@ -3,7 +3,7 @@
 int rep_disk(char id[5], char path[200]) {
     int posicion = 0, iterador = 0, contador = 0;
     double inicio = 0, porcentaje = 0, unidades[5];
-    char xtncn[5], cadena[10000], aidi = '1', reporte[42] = "/home/moramaz/Escritorio/archivos/re.dot";
+    char xtncn[5], cadena[10000], aidi = '1', reporte[42] = "/home/moramaz/Escritorio/re.dot";
     for(posicion = 0; posicion < 10000; posicion++) cadena[posicion] = '\0';
     posicion = 0;
     FILE *mounts, *disco, *dot;
@@ -2617,7 +2617,7 @@ int rep_disk(char id[5], char path[200]) {
         }
         strcat(cadena, "\t\t\t</TR>\n\t\t</TABLE>\n\t>, ];\n\t");
         strcat(cadena, "\n}");
-        remove("/home/moramaz/Escritorio/archivos/re.dot");
+        remove("/home/moramaz/Escritorio/re.dot");
         dot = fopen(reporte, "w");
         fclose(dot);
         dot = fopen(reporte, "a+t");
@@ -2667,7 +2667,7 @@ int rep_disk(char id[5], char path[200]) {
 int rep_mbr(char id[5], char path[200]) {
     int posicion = 0, iterador = 0, contador = 0, condicion = 0, count;
     double inicio = 0, porcentaje = 0, unidades[20];
-    char cadena[10000], xtncn[5], aidi = '1', reporte[42] = "/home/moramaz/Escritorio/archivos/re.dot";
+    char cadena[10000], xtncn[5], aidi = '1', reporte[42] = "/home/moramaz/Escritorio/re.dot";
     for(posicion = 0; posicion < 10000; posicion++) cadena[posicion] = '\0';
     posicion = 0;
     FILE *mounts, *disco, *dot;
@@ -3273,7 +3273,7 @@ int rep_mbr(char id[5], char path[200]) {
         }
         strcat(cadena, "\t\t</TABLE>\n\t>, ];\n\t");
         strcat(cadena, "\n}");
-        remove("/home/moramaz/Escritorio/archivos/re.dot");
+        remove("/home/moramaz/Escritorio/re.dot");
         dot = fopen(reporte, "w");
         fclose(dot);
         dot = fopen(reporte, "a+t");

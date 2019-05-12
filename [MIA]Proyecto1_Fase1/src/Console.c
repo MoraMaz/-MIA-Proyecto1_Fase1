@@ -1103,7 +1103,6 @@ int comando(char cadena1[300]){
                                         }
                                         posicion++;
                                         for(i = 0; i < 4; i++) id[i] = cadena1[posicion++];
-                                        i++;
                                         id[i] = '\0';
                                         posicion++;
                                     }else {
@@ -3192,35 +3191,76 @@ int mount(char path[300], char name[20]){
 }
 
 int unmount(char id[5]){
-    FILE *mounts;
+    FILE *mounts, *mounts2;
     moun lector, limpio;
     limpiar_mount(&lector);
     limpiar_mount(&limpio);
     mounts = fopen("/home/moramaz/Escritorio/mounts.dsk", "rb+");
+    mounts2 = fopen("/home/moramaz/Escritorio/mounts2.dsk", "wb+");
+    fclose(mounts2);
+    mounts2 = fopen("/home/moramaz/Escritorio/mounts2.dsk", "rb+");
     if(mounts == NULL){
         printf("No se ha podido desmontar la particion.\n");
         return -1;
     }
     fread(&lector, sizeof(moun), 1, mounts);
-    int count, condicion = 0;
+    int count, condicion = 0, registro = 0;
     while(1){
-        for(count = 0; count < 5; count++){
-            if(lector.id[count] == id[count])
-                condicion = 1;
-            else{
-                condicion = 0;
-                break;
+        if(!condicion){
+            for(count = 0; count < 5; count++){
+                if(lector.id[count] == id[count])
+                    condicion = 1;
+                else{
+                    condicion = 0;
+                    break;
+                }
             }
+            registro++;
         }
-        if(condicion || lector.id[0] == '\0')
-            break;
+        if(lector.id[0] == '\0') break;
+        fwrite(&lector, sizeof(moun), 1, mounts2);
         limpiar_mount(&lector);
         fread(&lector, sizeof(moun), 1, mounts);
     }
+    fclose(mounts);
+    fclose(mounts2);
     if(condicion){
-
+        remove("/home/moramaz/Escritorio/mounts.dsk");
+        mounts = fopen("/home/moramaz/Escritorio/mounts.dsk", "wb+");
+        fclose(mounts);
+        mounts = fopen("/home/moramaz/Escritorio/mounts.dsk", "rb+");
+        mounts2 = fopen("/home/moramaz/Escritorio/mounts2.dsk", "r");
+        count = 1;
+        limpiar_mount(&lector);
+        fread(&lector, sizeof(moun), 1, mounts2);
+        while(1){
+            if(count == registro) {
+                limpiar_mount(&lector);
+                fread(&lector, sizeof(moun), 1, mounts2);
+            }
+            if(lector.id[0] == '\0') break;
+            fwrite(&lector, sizeof(moun), 1, mounts);
+            limpiar_mount(&lector);
+            fread(&lector, sizeof(moun), 1, mounts2);
+            count++;
+        }
+        fclose(mounts);
+        fclose(mounts2);
+        printf("La particion ha sido desmontada exitosamente.\n\n");
+        printf("Mostrando la lista de particiones montadas:\n");
+        mounts = fopen("/home/moramaz/Escritorio/mounts.dsk", "r");
+        while(!feof(mounts)){
+            fread(&lector, sizeof(moun), 1, mounts);
+            if(strcmp(lector.id, "\0")){
+                printf("\tid: %s \tnombre: %s\n", lector.id, lector.nombre);
+            }
+            limpiar_mount(&lector);
+        }
+        fclose(mounts);
+        remove("/home/moramaz/Escritorio/mounts2.dsk");
     }else{
         printf("No se ha encontrado el id ingresado.\n");
+        remove("/home/moramaz/Escritorio/mounts2.dsk");
         return -1;
     }
     return 0;
