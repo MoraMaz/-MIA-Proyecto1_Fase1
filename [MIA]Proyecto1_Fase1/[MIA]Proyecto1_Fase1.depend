@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1557623983 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1557624634 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Console.c
+	<Console.h>
+
+1557624643 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Console.h
+	<Structs.h>
+
+1557624469 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Structs.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<Reports.h>
+	<time.h>
+
+1557624590 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Reports.h
+	<stdlib.h>
+	<stdio.h>
+	<Structs.h>
+	<string.h>
+	"time.h"
+	"math.h"
+	<stdlib.h>
+	<ctype.h>
+	<assert.h>
+	<stdbool.h>
+
+1557624505 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Structs.c
+	<Structs.h>
+
