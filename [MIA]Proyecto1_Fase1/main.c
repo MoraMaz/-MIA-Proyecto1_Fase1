@@ -5,11 +5,8 @@
 int main()
 {
     srand (time(NULL));
-    FILE * disco;
-    disco = fopen("/home/moramaz/Escritorio/mounts.dsk", "wb+");
-    fclose(disco);
-    menu();
     remove("/home/moramaz/Escritorio/mounts.dsk");
+    menu();
     printf("Ahi te ves papu!\n");
     return 0;
 }

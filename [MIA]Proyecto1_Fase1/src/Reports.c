@@ -2704,18 +2704,6 @@ int rep_mbr(char id[5], char path[200]) {
         }
         fseek(disco, 0, SEEK_SET);
         fread(&mbr_, sizeof(mbr), 1, disco);
-        if(!strcmp(lector.nombre, mbr_.mbr_partition_1.part_name))
-            fseek(disco, mbr_.mbr_partition_1.part_start, SEEK_SET);
-        else if(!strcmp(lector.nombre, mbr_.mbr_partition_2.part_name))
-            fseek(disco, mbr_.mbr_partition_2.part_start, SEEK_SET);
-        else if(!strcmp(lector.nombre, mbr_.mbr_partition_3.part_name))
-            fseek(disco, mbr_.mbr_partition_3.part_start, SEEK_SET);
-        else if(!strcmp(lector.nombre, mbr_.mbr_partition_4.part_name))
-            fseek(disco, mbr_.mbr_partition_4.part_start, SEEK_SET);
-        else{
-            printf("No se ha encontrado la particion montada en el id especificado.\n");
-            return -1;
-        }
         strcpy(cadena, "digraph SB{\n\trankdir = UD;\n\tgraph [ratio = fill];\n\tnode [shape = plaintext]\n\t");
         strcat(cadena, "NODO [label=<\n\t\t<TABLE ALIGN = \"LEFT\">\n");
         strcat(cadena, "\t\t\t<TR>\n");

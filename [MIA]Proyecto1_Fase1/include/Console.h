@@ -4,6 +4,7 @@
 
 int menu();
 int comando(char cadena1[300]);
+int delimitador(char cadena1[300], int posicion);
 int mkdisk(char path[200], char fit, int tamano);
 int rmdisk(char path[200]);
 int fdisk(int size, char unit, char path[200], char type, char fit, char del, char name[16], int add);

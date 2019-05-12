@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1557624883 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/main.c
+1557629915 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/main.c
 	<stdio.h>
 	<stdlib.h>
 	<Console.h>
 
-1557629380 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Console.c
+1557635091 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Console.c
 	<Console.h>
 
-1557624643 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Console.h
+1557631750 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Console.h
 	<Structs.h>
 
 1557624469 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Structs.h
@@ -32,6 +32,6 @@
 1557624505 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Structs.c
 	<Structs.h>
 
-1557625630 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Reports.c
+1557632477 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Reports.c
 	<Reports.h>
 

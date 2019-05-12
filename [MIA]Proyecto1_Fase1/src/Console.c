@@ -32,21 +32,7 @@ int menu(){
             }
             if(bexec){
                 bexec = 0;
-                if(cadena1[posicion] != '~'){
-                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                    return -1;
-                }
-                posicion++; //~
-                if(cadena1[posicion] != ':'){
-                    printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                    return -1;
-                }
-                posicion++; //:
-                if(cadena1[posicion] != '~'){
-                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                    return -1;
-                }
-                posicion++; //~
+                posicion = delimitador(cadena1, posicion);
                 if(cadena1[posicion] == '"'){
                     posicion++;
                     while(cadena1[posicion] != '"'){
@@ -97,15 +83,33 @@ int menu(){
     return 0;
 }
 
+int delimitador(char cadena1[300], int posicion){
+    if(cadena1[posicion] != '~'){
+        printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
+        return -1;
+    }
+    posicion++; //~
+    if(cadena1[posicion] != ':'){
+        printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
+        return -1;
+    }
+    posicion++; //:
+    if(cadena1[posicion] != '~'){
+        printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
+        return -1;
+    }
+    posicion++; //~
+    return posicion;
+}
+
 int comando(char cadena1[300]){
     int posicion = 0, i = 0, j = -1996, a = -1996, condicion = false;
-    char amk[6] = "mkdisk", arm[6] = "rmdisk", afd[5] = "fdisk", amo[5] = "mount", aun[7] = "unmount", are[3] = "rep", aml[6] = "mkfile", ams[4] = "mkfs", ali[5] = "login",
-    alo[6] = "logout", agp[5] = "mkgrp", arp[5] = "rmgrp", amu[5] = "mkusr", aru[5] = "rmusr", ach[5] = "chmod", aca[3] = "cat", aem[3] = "rem", aed[4] = "edit",
-    aen[3] = "ren", amd[5] = "mkdir", acp[2] = "cp", amv[2] = "mv", afi[4] = "find", aow[5] = "chown", acg[5] = "chgrp", ary[8] = "recovery", ass[4] = "loss", par1[200],
-    ruta[200], par2[16], id[5], u = 'm', t = 'p', f = 'w', fd = 'f', d = '\0';
-    while(cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\c' || cadena1[posicion] == '#'){
+    char amk[6] = "mkdisk", arm[6] = "rmdisk", afd[5] = "fdisk", amo[5] = "mount", aun[7] = "unmount", are[3] = "rep", //aml[6] = "mkfile", ams[4] = "mkfs", ali[5] = "login",
+    //alo[6] = "logout", agp[5] = "mkgrp", arp[5] = "rmgrp", amu[5] = "mkusr", aru[5] = "rmusr", ach[5] = "chmod", aca[3] = "cat", aem[3] = "rem", aed[4] = "edit",
+    //aen[3] = "ren", amd[5] = "mkdir", acp[2] = "cp", amv[2] = "mv", afi[4] = "find", aow[5] = "chown", acg[5] = "chgrp", ary[8] = "recovery", ass[4] = "loss",
+    par1[200], ruta[200], par2[16], id[5], u = 'm', t = 'p', f = 'w', fd = 'f', d = '\0';
+    while(cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '#'){
          posicion++;
-         //if(cadena1[posicion] == '#') while(cadena1[posicion] != '\n') posicion++;
          if(cadena1[posicion] == '\0') return -1;
     }
     for(posicion = 0; posicion < 6; posicion++){
@@ -133,22 +137,9 @@ int comando(char cadena1[300]){
                         if(cadena1[posicion] == 'T' || cadena1[posicion] == 't'){
                             posicion++;
                             if(cadena1[posicion] == 'H' || cadena1[posicion] == 'h'){
-                                posicion++; //~
-                                if(cadena1[posicion] != '~'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                    return -1;
-                                }
-                                posicion++; //:
-                                if(cadena1[posicion] != ':'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                    return -1;
-                                }
-                                posicion++; //~
-                                if(cadena1[posicion] != '~'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                    return -1;
-                                }
                                 posicion++;
+                                if(delimitador(cadena1, posicion) == -1) return -1;
+                                else posicion = posicion + 3;
                                 par1[0] = 'm'; par1[1] = 'k'; par1[2] = 'd'; par1[3] = 'i'; par1[4] = 'r'; par1[5] = ' '; par1[6] = '"';
                                 if(cadena1[posicion] == '"'){
                                     i = 7;
@@ -210,22 +201,9 @@ int comando(char cadena1[300]){
                         if(cadena1[posicion] == 'i' || cadena1[posicion] == 'I'){
                             posicion++;
                             if(cadena1[posicion] == 't' || cadena1[posicion] == 'T'){
-                                posicion++; //~
-                                if(cadena1[posicion] != '~'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                    return -1;
-                                }
-                                posicion++; //:
-                                if(cadena1[posicion] != ':'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                    return -1;
-                                }
-                                posicion++; //~
-                                if(cadena1[posicion] != '~'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                    return -1;
-                                }
                                 posicion++;
+                                if(delimitador(cadena1, posicion) == -1) return -1;
+                                else posicion = posicion + 3;
                                 if(cadena1[posicion] == 'k' || cadena1[posicion] == 'K')
                                     u = 'k';
                                 else if(cadena1[posicion] == 'M' || cadena1[posicion] == 'm')
@@ -254,22 +232,9 @@ int comando(char cadena1[300]){
                         if(cadena1[posicion] == 'z' || cadena1[posicion] == 'Z'){
                             posicion++;
                             if(cadena1[posicion] == 'E' || cadena1[posicion] == 'e'){
-                                posicion++; //~
-                                if(cadena1[posicion] != '~'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                    return -1;
-                                }
-                                posicion++; //:
-                                if(cadena1[posicion] != ':'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                    return -1;
-                                }
-                                posicion++; //~
-                                if(cadena1[posicion] != '~'){
-                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                    return -1;
-                                }
                                 posicion++;
+                                if(delimitador(cadena1, posicion) == -1) return -1;
+                                else posicion = posicion + 3;
                                 if(cadena1[posicion] == '-'){
                                     printf("ERROR: El parametro size no puede tener un valor menor o igual a 0.\n");
                                     return 0;
@@ -305,22 +270,9 @@ int comando(char cadena1[300]){
                     if(cadena1[posicion] == 'i' || cadena1[posicion] == 'I'){
                         posicion++;
                         if(cadena1[posicion] == 't' || cadena1[posicion] == 'T'){
-                            posicion++; //~
-                            if(cadena1[posicion] != '~'){
-                                printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                return -1;
-                            }
-                            posicion++; //:
-                            if(cadena1[posicion] != ':'){
-                                printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                return -1;
-                            }
-                            posicion++; //~
-                            if(cadena1[posicion] != '~'){
-                                printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                return -1;
-                            }
                             posicion++;
+                            if(delimitador(cadena1, posicion) == -1) return -1;
+                            else posicion = posicion + 3;
                             if(cadena1[posicion] == 'b' || cadena1[posicion] == 'B') fd = 'b';
                             else if(cadena1[posicion] == 'f' || cadena1[posicion] == 'F') fd = 'f';
                             else if(cadena1[posicion] == 'w' || cadena1[posicion] == 'W') fd = 'w';
@@ -1533,38 +1485,7 @@ int fdisk(int size, char unit, char path[200], char type, char fit, char del, ch
             }
             fclose(disco);
         }
-        if(mbr_.mbr_partition_1.part_status == '1' && mbr_.mbr_partition_2.part_status == '1' && mbr_.mbr_partition_3.part_status == '1' && mbr_.mbr_partition_4.part_status == '1'){
-            if(mbr_.mbr_partition_3.part_start > mbr_.mbr_partition_4.part_start){
-                nueva = mbr_.mbr_partition_3;
-                mbr_.mbr_partition_3 = mbr_.mbr_partition_4;
-                mbr_.mbr_partition_4 = nueva;
-            }
-            if(mbr_.mbr_partition_2.part_start > mbr_.mbr_partition_3.part_start){
-                nueva = mbr_.mbr_partition_2;
-                mbr_.mbr_partition_2 = mbr_.mbr_partition_3;
-                mbr_.mbr_partition_3 = nueva;
-            }
-            if(mbr_.mbr_partition_1.part_start > mbr_.mbr_partition_2.part_start){
-                nueva = mbr_.mbr_partition_1;
-                mbr_.mbr_partition_1 = mbr_.mbr_partition_2;
-                mbr_.mbr_partition_2 = nueva;
-            }
-            if(mbr_.mbr_partition_2.part_start > mbr_.mbr_partition_3.part_start){
-                nueva = mbr_.mbr_partition_2;
-                mbr_.mbr_partition_2 = mbr_.mbr_partition_3;
-                mbr_.mbr_partition_3 = nueva;
-            }
-            if(mbr_.mbr_partition_3.part_start > mbr_.mbr_partition_4.part_start){
-                nueva = mbr_.mbr_partition_3;
-                mbr_.mbr_partition_3 = mbr_.mbr_partition_4;
-                mbr_.mbr_partition_4 = nueva;
-            }
-            if(mbr_.mbr_partition_2.part_start > mbr_.mbr_partition_3.part_start){
-                nueva = mbr_.mbr_partition_2;
-                mbr_.mbr_partition_2 = mbr_.mbr_partition_3;
-                mbr_.mbr_partition_3 = nueva;
-            }
-        }else if(mbr_.mbr_partition_1.part_status == mbr_.mbr_partition_2.part_status && mbr_.mbr_partition_2.part_status == mbr_.mbr_partition_3.part_status && mbr_.mbr_partition_1.part_status == '1'){
+        if(mbr_.mbr_partition_1.part_status == mbr_.mbr_partition_2.part_status && mbr_.mbr_partition_2.part_status == mbr_.mbr_partition_3.part_status && mbr_.mbr_partition_1.part_status == '1'){
             if(mbr_.mbr_partition_2.part_start > mbr_.mbr_partition_3.part_start){
                 nueva = mbr_.mbr_partition_2;
                 mbr_.mbr_partition_2 = mbr_.mbr_partition_3;
@@ -3116,7 +3037,6 @@ int mount(char path[300], char name[20]){
             ej = 1;
         }else{
             mounts = fopen("/home/moramaz/Escritorio/mounts.dsk", "wb+");
-            printf("Archivo creado en \n");
             aidi[2] = 'a';
             aidi[3] = '1';
             ej = 0;
@@ -3135,19 +3055,20 @@ int mount(char path[300], char name[20]){
                 }
                 break;
             }else{
-                if(est.id[2] > ult){
-                    ult = est.id[2];
-                }
                 if(!strcmp(path, est.path)){
-                    esta = 1;
-                    ult = est.id[2];
+                    if(!esta){
+                        esta = 1;
+                        ult = est.id[2];
+                    }
                     cont_id = (est.id[3] - '0') + 1;
                     if(!strcmp(name, est.nombre)){
                         printf("La particion ya habia sido montada con el id %s.\n", est.id);
                         return -1;
                     }
-                }else{
-                    esta = 0;
+                }else if(!esta){
+                    if(est.id[2] > ult){
+                        ult = est.id[2];
+                    }
                 }
                 cont_part++;
                 limpiar_mount(&est);
