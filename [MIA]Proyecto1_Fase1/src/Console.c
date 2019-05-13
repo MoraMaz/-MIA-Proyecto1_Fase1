@@ -204,10 +204,8 @@ int comando(char cadena1[300]){
                                 posicion++;
                                 if(delimitador(cadena1, posicion) == -1) return -1;
                                 else posicion = posicion + 3;
-                                if(cadena1[posicion] == 'k' || cadena1[posicion] == 'K')
-                                    u = 'k';
-                                else if(cadena1[posicion] == 'M' || cadena1[posicion] == 'm')
-                                    u = 'm';
+                                if(cadena1[posicion] == 'k' || cadena1[posicion] == 'K') u = 'k';
+                                else if(cadena1[posicion] == 'M' || cadena1[posicion] == 'm') u = 'm';
                                 else{
                                     printf("ERROR: El parametro unit solo puede tener como valor 'k' o 'm'.\n");
                                     return 0;
@@ -1368,10 +1366,12 @@ int mkdisk(char path[200], char fit, int tamano){
         return -1;
     }
     disco = fopen(path, "wb+");
+    fclose(disco);
     if(disco == NULL){
         printf("No se ha podido crear el disco.\n");
         return -1;
     }
+    disco = fopen(path, "rb+");
     char nulo[1024];
     for(iterador = 0; iterador < 1024; iterador++) nulo[iterador] = '\0';
     fseek(disco, 0, SEEK_SET);
@@ -1432,10 +1432,9 @@ int fdisk(int size, char unit, char path[200], char type, char fit, char del, ch
     if(size == add && size == -1996){  /* ES UN DELETE */
         printf("Esta seguro que desea eliminar '%s'? [s/n]: ", name);
         int iterador = 0;
-        char op[2] = {'\0', '\0'};
+        char op[2] = {'\0', '\0'}, c[4] = {'s', 'S', 'n', 'N'};
         scanf("%s", op);
         boolean bandera = true, dicequesi = false;
-        char c[4] = {'s', 'S', 'n', 'N'};
         while(bandera){
             if(iterador == 4){
                 printf("Ingrese una opción válida: ");
@@ -1477,12 +1476,10 @@ int fdisk(int size, char unit, char path[200], char type, char fit, char del, ch
         }
         limpiar_part(&mbr_.mbr_partition_4);
         if(del == 'u' || del == 'U'){
-            del = '\0';
+            op[0] = '\0';
             disco = fopen(path, "rb+");
             fseek(disco, pos, SEEK_SET);
-            for(int i = pos; i < end + 1; i++){
-                fwrite(&del, sizeof(mbr), 1, disco);
-            }
+            for(int i = pos; i < end; i++) fwrite(&op, 1, 1, disco);
             fclose(disco);
         }
         if(mbr_.mbr_partition_1.part_status == mbr_.mbr_partition_2.part_status && mbr_.mbr_partition_2.part_status == mbr_.mbr_partition_3.part_status && mbr_.mbr_partition_1.part_status == '1'){

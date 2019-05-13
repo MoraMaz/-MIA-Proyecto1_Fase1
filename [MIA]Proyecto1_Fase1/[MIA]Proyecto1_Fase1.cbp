@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -31,7 +33,19 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Console.h" />
+		<Unit filename="include/Reports.h" />
+		<Unit filename="include/Structs.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Console.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Reports.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Structs.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
