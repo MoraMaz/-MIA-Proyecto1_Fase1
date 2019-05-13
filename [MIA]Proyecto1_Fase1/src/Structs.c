@@ -27,6 +27,6 @@ int limpiar_mount(moun *actual){
     int index;
     for(index = 0; index < 5; index++) actual->id[index] = '\0';
     for(index = 0; index < 16; index++) actual->nombre[index] = '\0';
-    for(index = 0; index < 300; index++) actual->path[index] = '\0';
+    for(index = 0; index < 200; index++) actual->path[index] = '\0';
     return 0;
 }

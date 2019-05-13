@@ -4,13 +4,13 @@
 	<stdlib.h>
 	<Console.h>
 
-1557732093 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Console.c
+1557790550 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Console.c
 	<Console.h>
 
 1557631750 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Console.h
 	<Structs.h>
 
-1557624469 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Structs.h
+1557790912 /home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/include/Structs.h
 	<stdlib.h>
 	<string.h>
 	<stdio.h>
@@ -32,6 +32,6 @@
 1557624505 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Structs.c
 	<Structs.h>
 
-1557731528 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Reports.c
+1557790779 source:/home/moramaz/Escritorio/git/-MIA-Proyecto1_Fase1/[MIA]Proyecto1_Fase1/src/Reports.c
 	<Reports.h>
 

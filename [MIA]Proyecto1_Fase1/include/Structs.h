@@ -31,7 +31,7 @@ struct m{
 };
 
 struct ou{
-    char id[5], nombre[16], path[300];
+    char id[5], nombre[16], path[200];
 };
 
 #endif // STRUCTS_H

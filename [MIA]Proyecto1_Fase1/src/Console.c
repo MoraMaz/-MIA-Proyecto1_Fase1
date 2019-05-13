@@ -140,6 +140,10 @@ int comando(char cadena1[300]){
                                 posicion++;
                                 if(delimitador(cadena1, posicion) == -1) return -1;
                                 else posicion = posicion + 3;
+                                if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                    printf("ERROR: parametro path sin valor.\n");
+                                    return -1;
+                                }
                                 par1[0] = 'm'; par1[1] = 'k'; par1[2] = 'd'; par1[3] = 'i'; par1[4] = 'r'; par1[5] = ' '; par1[6] = '"';
                                 if(cadena1[posicion] == '"'){
                                     i = 7;
@@ -204,6 +208,10 @@ int comando(char cadena1[300]){
                                 posicion++;
                                 if(delimitador(cadena1, posicion) == -1) return -1;
                                 else posicion = posicion + 3;
+                                if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                    printf("ERROR: parametro unit sin valor.\n");
+                                    return -1;
+                                }
                                 if(cadena1[posicion] == 'k' || cadena1[posicion] == 'K') u = 'k';
                                 else if(cadena1[posicion] == 'M' || cadena1[posicion] == 'm') u = 'm';
                                 else{
@@ -233,6 +241,10 @@ int comando(char cadena1[300]){
                                 posicion++;
                                 if(delimitador(cadena1, posicion) == -1) return -1;
                                 else posicion = posicion + 3;
+                                if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                    printf("ERROR: parametro size sin valor.\n");
+                                    return -1;
+                                }
                                 if(cadena1[posicion] == '-'){
                                     printf("ERROR: El parametro size no puede tener un valor menor o igual a 0.\n");
                                     return 0;
@@ -271,6 +283,10 @@ int comando(char cadena1[300]){
                             posicion++;
                             if(delimitador(cadena1, posicion) == -1) return -1;
                             else posicion = posicion + 3;
+                            if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                printf("ERROR: parametro fit sin valor.\n");
+                                return -1;
+                            }
                             if(cadena1[posicion] == 'b' || cadena1[posicion] == 'B') fd = 'b';
                             else if(cadena1[posicion] == 'f' || cadena1[posicion] == 'F') fd = 'f';
                             else if(cadena1[posicion] == 'w' || cadena1[posicion] == 'W') fd = 'w';
@@ -332,22 +348,13 @@ int comando(char cadena1[300]){
                             if(cadena1[posicion] == 'T' || cadena1[posicion] == 't'){
                                 posicion++;
                                 if(cadena1[posicion] == 'H' || cadena1[posicion] == 'h'){
-                                    posicion++; //~
-                                    if(cadena1[posicion] != '~'){
-                                        printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                        return -1;
-                                    }
-                                    posicion++; //:
-                                    if(cadena1[posicion] != ':'){
-                                        printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                        return -1;
-                                    }
-                                    posicion++; //~
-                                    if(cadena1[posicion] != '~'){
-                                        printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                        return -1;
-                                    }
                                     posicion++;
+                                    if(delimitador(cadena1, posicion) == -1) return -1;
+                                    else posicion = posicion + 3;
+                                    if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                        printf("ERROR: parametro path sin valor.\n");
+                                        return -1;
+                                    }
                                     i = 0;
                                     if(cadena1[posicion] == '"'){
                                         posicion++;
@@ -428,22 +435,13 @@ int comando(char cadena1[300]){
                                 if(cadena1[posicion] == 'z' || cadena1[posicion] == 'Z'){
                                     posicion++;
                                     if(cadena1[posicion] == 'e' || cadena1[posicion] == 'E'){
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //:
-                                        if(cadena1[posicion] != ':'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
                                         posicion++;
+                                        if(delimitador(cadena1, posicion) == -1) return -1;
+                                        else posicion = posicion + 3;
+                                        if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                            printf("ERROR: parametro size sin valor.\n");
+                                            return -1;
+                                        }
                                         if(cadena1[posicion] == '-'){
                                             printf("ERROR: El parametro size no puede tener un valor menor o igual a 0.\n");
                                             return 0;
@@ -481,22 +479,13 @@ int comando(char cadena1[300]){
                                 if(cadena1[posicion] == 'i' || cadena1[posicion] == 'I'){
                                     posicion++;
                                     if(cadena1[posicion] == 't' || cadena1[posicion] == 'T'){
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //:
-                                        if(cadena1[posicion] != ':'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
                                         posicion++;
+                                        if(delimitador(cadena1, posicion) == -1) return -1;
+                                        else posicion = posicion + 3;
+                                        if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                            printf("ERROR: parametro unit sin valor.\n");
+                                            return -1;
+                                        }
                                         if(cadena1[posicion] == 'B' || cadena1[posicion] == 'b')
                                             u = 'b';
                                         else if(cadena1[posicion] == 'k' || cadena1[posicion] == 'K')
@@ -527,22 +516,13 @@ int comando(char cadena1[300]){
                                 if(cadena1[posicion] == 't' || cadena1[posicion] == 'T'){
                                     posicion++;
                                     if(cadena1[posicion] == 'h' || cadena1[posicion] == 'H'){
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //:
-                                        if(cadena1[posicion] != ':'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
                                         posicion++;
+                                        if(delimitador(cadena1, posicion) == -1) return -1;
+                                        else posicion = posicion + 3;
+                                        if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                            printf("ERROR: parametro path sin valor.\n");
+                                            return -1;
+                                        }
                                         i = 0;
                                         if(cadena1[posicion] == '"'){
                                             posicion++;
@@ -578,29 +558,20 @@ int comando(char cadena1[300]){
                                 printf("ERROR: Parametro no identificado.\n");
                                 condicion = false;
                             }
-                        }else if(cadena1[posicion] == 't' || cadena1[posicion] == 'T'){
+                        } else if(cadena1[posicion] == 't' || cadena1[posicion] == 'T'){
                             posicion++;
                             if(cadena1[posicion] == 'y' || cadena1[posicion] == 'Y'){
                                 posicion++;
                                 if(cadena1[posicion] == 'p' || cadena1[posicion] == 'P'){
                                     posicion++;
                                     if(cadena1[posicion] == 'e' || cadena1[posicion] == 'E'){
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //:
-                                        if(cadena1[posicion] != ':'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
                                         posicion++;
+                                        if(delimitador(cadena1, posicion) == -1) return -1;
+                                        else posicion = posicion + 3;
+                                        if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                            printf("ERROR: parametro type sin valor.\n");
+                                            return -1;
+                                        }
                                         if(cadena1[posicion] == 'p' || cadena1[posicion] == 'P')
                                             t = 'p';
                                         else if(cadena1[posicion] == 'e' || cadena1[posicion] == 'E')
@@ -629,22 +600,13 @@ int comando(char cadena1[300]){
                             if(cadena1[posicion] == 'i' || cadena1[posicion] == 'I'){
                                 posicion++;
                                 if(cadena1[posicion] == 't' || cadena1[posicion] == 'T'){
-                                    posicion++; //~
-                                    if(cadena1[posicion] != '~'){
-                                        printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                        return -1;
-                                    }
-                                    posicion++; //:
-                                    if(cadena1[posicion] != ':'){
-                                        printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                        return -1;
-                                    }
-                                    posicion++; //~
-                                    if(cadena1[posicion] != '~'){
-                                        printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                        return -1;
-                                    }
                                     posicion++;
+                                    if(delimitador(cadena1, posicion) == -1) return -1;
+                                    else posicion = posicion + 3;
+                                    if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                        printf("ERROR: parametro fit sin valor.\n");
+                                        return -1;
+                                    }
                                     if(cadena1[posicion] == 'b' || cadena1[posicion] == 'B')
                                         f = 'b';
                                     else if(cadena1[posicion] == 'f' || cadena1[posicion] == 'F')
@@ -665,7 +627,7 @@ int comando(char cadena1[300]){
                                 printf("ERROR: Parametro no identificado.\n");
                                 condicion = false;
                             }
-                        }else if(cadena1[posicion] == 'd' || cadena1[posicion] == 'D'){
+                        } else if(cadena1[posicion] == 'd' || cadena1[posicion] == 'D'){
                             posicion++;
                             if(cadena1[posicion] == 'e' || cadena1[posicion] == 'E'){
                                 posicion++;
@@ -676,22 +638,13 @@ int comando(char cadena1[300]){
                                         if(cadena1[posicion] == 't' || cadena1[posicion] == 'T'){
                                             posicion++;
                                             if(cadena1[posicion] == 'e' || cadena1[posicion] == 'E'){
-                                                posicion++; //~
-                                                if(cadena1[posicion] != '~'){
-                                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                                    return -1;
-                                                }
-                                                posicion++; //:
-                                                if(cadena1[posicion] != ':'){
-                                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                                    return -1;
-                                                }
-                                                posicion++; //~
-                                                if(cadena1[posicion] != '~'){
-                                                    printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                                    return -1;
-                                                }
                                                 posicion++;
+                                                if(delimitador(cadena1, posicion) == -1) return -1;
+                                                else posicion = posicion + 3;
+                                                if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                                    printf("ERROR: parametro delete sin valor.\n");
+                                                    return -1;
+                                                }
                                                 if(cadena1[posicion] == 'f' || cadena1[posicion] == 'F'){
                                                     posicion++;
                                                     if(cadena1[posicion] == 'a' || cadena1[posicion] == 'A'){
@@ -759,22 +712,13 @@ int comando(char cadena1[300]){
                                 if(cadena1[posicion] == 'm' || cadena1[posicion] == 'M'){
                                     posicion++;
                                     if(cadena1[posicion] == 'e' || cadena1[posicion] == 'E'){
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //:
-                                        if(cadena1[posicion] != ':'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
                                         posicion++;
+                                        if(delimitador(cadena1, posicion) == -1) return -1;
+                                        else posicion = posicion + 3;
+                                        if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                            printf("ERROR: parametro name sin valor.\n");
+                                            return -1;
+                                        }
                                         i = 0;
                                         if(cadena1[posicion] == '"'){
                                             posicion++;
@@ -809,22 +753,9 @@ int comando(char cadena1[300]){
                                 if(cadena1[posicion] == 'd' || cadena1[posicion] == 'D'){
                                     posicion++;
                                     if(cadena1[posicion] == 'd' || cadena1[posicion] == 'D'){
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //:
-                                        if(cadena1[posicion] != ':'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba ':'.", cadena1[posicion]);
-                                            return -1;
-                                        }
-                                        posicion++; //~
-                                        if(cadena1[posicion] != '~'){
-                                            printf("ERROR: No se reconoció el caracter '%c', se esperaba '~'.", cadena1[posicion]);
-                                            return -1;
-                                        }
                                         posicion++;
+                                        if(delimitador(cadena1, posicion) == -1) return -1;
+                                        else posicion = posicion + 3;
                                         if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
                                             printf("ERROR: parametro add sin valor.\n");
                                             return -1;
@@ -3009,7 +2940,7 @@ int fdisk(int size, char unit, char path[200], char type, char fit, char del, ch
     return 0;
 }
 
-int mount(char path[300], char name[20]){
+int mount(char path[200], char name[20]){
     FILE *mounts, *disco;
     char aidi[5], ult;
     ult = '`';
