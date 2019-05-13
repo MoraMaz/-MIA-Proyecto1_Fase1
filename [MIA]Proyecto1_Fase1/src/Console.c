@@ -825,6 +825,10 @@ int comando(char cadena1[300]){
                                             return -1;
                                         }
                                         posicion++;
+                                        if(cadena1[posicion] == ' ' || cadena1[posicion] == '\n' || cadena1[posicion] == '\r' || cadena1[posicion] == '\t'){
+                                            printf("ERROR: parametro add sin valor.\n");
+                                            return -1;
+                                        }
                                         a = -1996;
                                         if(cadena1[posicion] == '-'){
                                             a = -1;
@@ -3186,8 +3190,8 @@ int unmount(char id[5]){
 
 int rep(char name[16], char path[200], char id[5]){
     int posicion = 0, condicion = 0, contador = 0;
-    char r1[3] = "mbr", r2[4] = "disk", r3[5] = "inode", r4[10] = "journaling", r5[5] = "block", r6[8] = "bm_inode", r7[8] = "bm_block", r8[4] = "tree", r9[2] = "sb",
-    r10[4] = "file", r11[2] = "ls";
+    char r1[3] = "mbr", r2[4] = "disk";//, r3[5] = "inode", r4[10] = "journaling", r5[5] = "block", r6[8] = "bm_inode", r7[8] = "bm_block", r8[4] = "tree", r9[2] = "sb",
+    //r10[4] = "file", r11[2] = "ls";
     for(contador = 0, posicion = 0; contador < 3; contador++, posicion++){
         if(name[posicion] != r1[contador] && name[posicion] != r1[contador] - 32){
             condicion = 0;
@@ -3195,9 +3199,8 @@ int rep(char name[16], char path[200], char id[5]){
         }
         condicion = 1;
     }
-    if(condicion){
-        return rep_mbr(id, path);
-    }else{
+    if(condicion) return rep_mbr(id, path);
+    else{
         for(contador = 0, posicion = 0; contador < 4; contador++, posicion++){
             if(name[posicion] != r2[contador] && name[posicion] != r2[contador] - 32){
                 condicion = 0;
@@ -3205,17 +3208,16 @@ int rep(char name[16], char path[200], char id[5]){
             }
             condicion = 1;
         }
-        if(condicion){
-            return rep_disk(id, path);
-        }else{
+        if(condicion) return rep_disk(id, path);
+        else{
             /*for(contador = 0, posicion = 0; contador < 5; contador++, posicion++){
                 if(name[posicion] != r3[contador] && name[posicion] != r3[contador] - 32){
                     condicion = 0;
                     break;
                 }
                 condicion = 1;
-            }*/
-            /*if(condicion){
+            }
+            if(condicion){
                 //return rep_inode(id, path);
             }else{
                 for(contador = 0, posicion = 0; contador < 10; contador++, posicion++){
