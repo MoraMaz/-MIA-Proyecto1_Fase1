@@ -238,7 +238,7 @@ int comando(char cadena1[300]){
                                     return 0;
                                 }
                                 j = -1996;
-                                while(cadena1[posicion] != ' ' && cadena1[posicion] != '\0' && cadena1[posicion] != '\n' && cadena1[posicion] != '\r' && cadena1[posicion] != '\c'){
+                                while(cadena1[posicion] != ' ' && cadena1[posicion] != '\0' && cadena1[posicion] != '\n' && cadena1[posicion] != '\r'){
                                     if(j == -1996)
                                         j = cadena1[posicion] - '0';
                                     else{
@@ -834,10 +834,10 @@ int comando(char cadena1[300]){
                                             a = -1;
                                             posicion++;
                                         }
-                                        while(cadena1[posicion] != ' ' && cadena1[posicion] != '\0' && cadena1[posicion] != '\r' && cadena1[posicion] != '\c' && cadena1[posicion] != '\n'){
+                                        while(cadena1[posicion] != ' ' && cadena1[posicion] != '\0' && cadena1[posicion] != '\r' && cadena1[posicion] != '\n'){
                                             if(a == -1996)
                                                 a = cadena1[posicion] - '0';
-                                            else if(a == -1)
+                                            else if(a == -1 && cadena1[posicion] != '0')
                                                 a = a * (cadena1[posicion] - '0');
                                             else if(a < 0)
                                                 a = a * 10 - (cadena1[posicion] - '0');
@@ -1120,7 +1120,7 @@ int comando(char cadena1[300]){
                                                     }
                                                     posicion++;
                                                     i = 0;
-                                                    while(cadena1[posicion] != ' ' && cadena1[posicion] != '\0' && cadena1[posicion] != '\c' && cadena1[posicion] != '\r' && cadena1[posicion] != '\n'){
+                                                    while(cadena1[posicion] != ' ' && cadena1[posicion] != '\0' && cadena1[posicion] != '\r' && cadena1[posicion] != '\n'){
                                                         par2[i] = cadena1[posicion];
                                                         i++;
                                                         posicion++;
@@ -3316,7 +3316,7 @@ int rep(char name[16], char path[200], char id[5]){
                         }
                     }
                 }
-            }/**/
+            }*/
         }
     }
     return 0;

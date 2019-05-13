@@ -303,7 +303,12 @@ int rep_disk(char id[5], char path[200]) {
                                         strcat(cadena, " \t\t\t\t</TD>\n");
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -370,7 +375,12 @@ int rep_disk(char id[5], char path[200]) {
                                     }else{
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -544,7 +554,12 @@ int rep_disk(char id[5], char path[200]) {
                                         strcat(cadena, " \t\t\t\t</TD>\n");
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -611,7 +626,12 @@ int rep_disk(char id[5], char path[200]) {
                                     }else{
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -892,7 +912,12 @@ int rep_disk(char id[5], char path[200]) {
                                         strcat(cadena, " \t\t\t\t</TD>\n");
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -959,7 +984,12 @@ int rep_disk(char id[5], char path[200]) {
                                     }else{
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -1133,7 +1163,12 @@ int rep_disk(char id[5], char path[200]) {
                                         strcat(cadena, " \t\t\t\t</TD>\n");
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -1200,7 +1235,12 @@ int rep_disk(char id[5], char path[200]) {
                                     }else{
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -1588,7 +1628,12 @@ int rep_disk(char id[5], char path[200]) {
                                         strcat(cadena, " \t\t\t\t</TD>\n");
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -1655,7 +1700,12 @@ int rep_disk(char id[5], char path[200]) {
                                     }else{
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -1829,7 +1879,12 @@ int rep_disk(char id[5], char path[200]) {
                                         strcat(cadena, " \t\t\t\t</TD>\n");
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -1896,7 +1951,12 @@ int rep_disk(char id[5], char path[200]) {
                                     }else{
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -2177,7 +2237,12 @@ int rep_disk(char id[5], char path[200]) {
                                         strcat(cadena, " \t\t\t\t</TD>\n");
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -2244,7 +2309,12 @@ int rep_disk(char id[5], char path[200]) {
                                     }else{
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -2418,7 +2488,12 @@ int rep_disk(char id[5], char path[200]) {
                                         strcat(cadena, " \t\t\t\t</TD>\n");
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
@@ -2485,7 +2560,12 @@ int rep_disk(char id[5], char path[200]) {
                                     }else{
                                         strcat(cadena, "\t\t\t\t<TD> ");
                                         strcat(cadena, mbr_.mbr_partition_4.part_name);
-                                        strcat(cadena, "<br></br><br></br>");
+                                        if(mbr_.mbr_partition_4.part_type == 'P' || mbr_.mbr_partition_4.part_type == 'p')
+                                            strcat(cadena, "<br></br>PRIMARIA<br></br>");
+                                        else if(mbr_.mbr_partition_4.part_type == 'E' || mbr_.mbr_partition_4.part_type == 'e')
+                                            strcat(cadena, "<br></br>EXTENDIDA<br></br>");
+                                        else
+                                            strcat(cadena, "<br></br>LOGICA<br></br>");
                                         posicion = 0;
                                         porcentaje = ((double) mbr_.mbr_partition_4.part_size / mbr_.mbr_tamano) * 100;
                                         while(porcentaje){
